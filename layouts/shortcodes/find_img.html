@@ -1,0 +1,16 @@
+<!-- 读取参数 -->
+<!-- args: name size -->
+{{ $name := (.Get 0) }}
+{{ $options := (.Get 1) }}
+{{ $oriimg := $.Page.Resources.GetMatch $name }}
+
+{{ if $options }}
+    <!-- 修改大小 -->
+    {{ with ($oriimg.Resize $options) }}
+        <!-- 插入图片 -->
+        <br><img src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}"><br>
+    {{ end }}
+{{ else }}
+    <br><img src="{{ $oriimg.RelPermalink }}"/><br>
+{{ end }}
+
