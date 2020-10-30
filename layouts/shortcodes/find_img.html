@@ -1,7 +1,8 @@
 <!-- 读取参数 -->
 <!-- args: name size -->
 {{ $name := (.Get 0) }}
-{{ $options := (.Get 1) }}
+{{ $no_nr := (.Get 1) }}
+{{ $options := (.Get 2) }}
 {{ $oriimg := $.Page.Resources.GetMatch $name }}
 
 {{ if $options }}
@@ -10,6 +11,8 @@
         <!-- 插入图片 -->
         <br><img src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}"><br>
     {{ end }}
+{{ else if $no_nr }}
+    <img src="{{ $oriimg.RelPermalink }}"/>
 {{ else }}
     <br><img src="{{ $oriimg.RelPermalink }}"/><br>
 {{ end }}
