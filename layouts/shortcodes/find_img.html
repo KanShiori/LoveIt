@@ -9,11 +9,11 @@
     <!-- 修改大小 -->
     {{ with ($oriimg.Resize $options) }}
         <!-- 插入图片 -->
-        <br><img src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}"><br>
+        <br><img src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}">
     {{ end }}
 {{ else if $no_nr }}
-    <img src="{{ $oriimg.RelPermalink }}"/>
+    <img src="{{ $oriimg.RelPermalink }}"/><br>
 {{ else }}
-    <br><img src="{{ $oriimg.RelPermalink }}"/><br>
+    <br><img src="{{ $oriimg.RelPermalink }}"/>
 {{ end }}
 
